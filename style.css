@@ -1,0 +1,180 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Without the CSS box-sizing Property:- When you set the width/height of an element, the element often appears bigger than you have set (because the element's border and padding are added to the element's specified width/height).
+    With the CSS box-sizing Property:- The box-sizing property allows us to include the padding and border in an element's total width and height.
+    If you set box-sizing: border-box; on an element, padding and border are included in the width and height */
+
+
+}
+
+body{
+    background-image: linear-gradient(120deg, rgb(211, 64, 89), rgb(245, 195, 203));
+    color: rgb(54, 15, 21);
+    font-family: 'Fredoka', sans-serif;
+    min-height: 100vh;
+    /* The min-height property defines the minimum height of an element.
+    If the content is smaller than the minimum height, the minimum height will be applied.
+    If the content is larger than the minimum height, the min-height property has no effect.
+    Note: This prevents the value of the height property from becoming smaller than min-height. */
+}
+
+header{
+    font-size: 1.3rem;
+}
+
+header, form{
+    min-height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form input,form button{
+    padding: 0.5rem;
+    font-size: 2rem;
+    border: none;
+    background: rgb(253, 240, 215);
+}
+
+form button{
+    color:rgb(211, 64, 89);
+    background-color: rgb(253, 240, 215);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* ease - specifies a transition effect with a slow start, then fast, then end slowly (this is default)
+    linear - specifies a transition effect with the same speed from start to end
+    ease-in - specifies a transition effect with a slow start
+    ease-out - specifies a transition effect with a slow end
+    ease-in-out - specifies a transition effect with a slow start and end
+    cubic-bezier(n,n,n,n) - lets you define your own values in a cubic-bezier function */
+}
+
+form button:hover{
+    color:rgb(253, 240, 215);
+    background-color:rgb(211, 64, 89);
+}
+
+.todo-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.todo-list{
+    min-width: 30%;
+    list-style: none;
+}
+
+.todo{
+    margin: 0.5rem;
+    background-color: rgb(253, 240, 215);
+    color: black;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.5s ease;
+    
+}
+
+.todo li{
+    flex: 1;
+    /* all the buttons are set next to each other */
+    /* flex: 1 sets flex-grow to 1 (whereas the default value is 0 ). What this does: If all items have flex-grow set to 1, the remaining space in the container will be distributed equally to all children. */
+}
+
+/* justify-content:-align the items horizontally
+align-items"-align the items vertically */
+
+.todo-item{
+    padding: 0rem 0.5rem;
+}
+
+.trash-btn,.complete-btn{
+
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    color:rgb(253, 240, 215);
+    cursor: pointer;
+    
+}
+
+.complete-btn{
+    background-color:green;
+}
+
+.trash-btn{
+    background-color:rgb(0, 0, 61);
+ 
+}
+
+.fa-check, .fa-trash{
+    pointer-events: none;
+    /* helps to click anywhere and still make the button fucntion */
+}
+
+.completed{
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.fall{
+    transform: translateY(8rem) rotateZ(20deg);
+    opacity: 0;
+}
+
+select{
+    /* You cannot style the select tag, so we remove all the styles from it and actually style the div tag above it. */
+    -webkit-appearance:none ;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+}
+
+.select{
+    margin: 1rem;
+    position: relative;
+    overflow: hidden;
+    /* The overflow property specifies what should happen if content overflows an element's box.This property specifies whether to clip content or to add scrollbars when an element's content is too big to fit in a specified area.
+    Note: The overflow property only works for block elements with a specified height. */
+}
+
+/* position: relative;
+An element with position: relative; is positioned relative to its normal position.
+Setting the top, right, bottom, and left properties of a relatively-positioned element will cause it to be adjusted away from its normal position. Other content will not be adjusted to fit into any gap left by the element. 
+
+position: absolute;
+An element with position: absolute; is positioned relative to the nearest positioned ancestor (instead of positioned relative to the viewport, like fixed).
+However; if an absolute positioned element has no positioned ancestors(parent element), it uses the document body, and moves along with page scrolling.*/
+
+select{
+    color: rgb(211, 64, 89);
+    width: 10rem;
+    cursor: pointer;
+    padding: 1rem;
+    background-color:rgb(253, 240, 215);
+}
+
+.select::after{
+    /* The ::after content is also “after” in source-order, so it will position on top of ::before if stacked on top of each other naturally. */
+    content: "\25BC";
+    position: absolute;
+    background-color: rgb(211, 64, 89);
+    top: 0;
+    right: 0;
+    pointer-events: none;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.select:hover::after{
+    color:rgb(211, 64, 89);
+    background-color:rgb(253, 240, 215);
+}
+
+
+
